@@ -240,8 +240,15 @@ object AreaTop10ProductSpark {
       * -2. 将合并之后的数据按照area分组后，进行数据的聚合操作；如果一个城市出现多次，只计算一次，但是记录下该城市的触发次数
       * number的计算：出现多少次(相同值)，number的值就是多少次
       * group_contact_distinct(concat_string)
+     *
+     *  数据表格式 ："city_id", "click_product_id", "city_name", "area"
       **/
     // 1. 创建sql语句
+    /**
+     * 这里分组后的城市编号和名称 多条可能是
+     * 1001:shanghai
+     * 1002:jiangsu
+     */
     val sql =
     """
       |SELECT
