@@ -468,8 +468,8 @@ object AdClickRealTimeStateSpark {
       }
     }
 
-    // 2. 计算点击量
-    val dailyAdClickCountByProvinceDStream = mappedDStream.reduceByKey(_ + _)
+    // 2. 计算点击量  ((date, province, adID), clickCount)
+    val dailyAdClickCountByProvinceDStream: DStream[((String, String, Int), Long)] = mappedDStream.reduceByKey(_ + _)
 
     // 3. 获取每个省份Top5的数据
     /**

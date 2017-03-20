@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Sat Mar 18 17:01:21 SGT 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-015a-e0a6-52c7-00000c090950 
-on database directory D:\workspace\O2O10\meituan-usertrack\metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@5b7372 
-Loaded from file:/C:/Users/ibf/.m2/repository/org/apache/derby/derby/10.10.2.0/derby-10.10.2.0.jar
+Mon Mar 20 23:07:19 CST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-015a-ec42-19de-00001036bb08 
+on database directory D:\tool\yxdtool\sparkproject\sparkProject\metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@6dc227c8 
+Loaded from file:/D:/tool/yxdtool/mavenjar/org/apache/derby/derby/10.10.2.0/derby-10.10.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_60-b19
-user.dir=D:\workspace\O2O10\meituan-usertrack
-os.name=Windows 8.1
+java.runtime.version=1.7.0_67-b01
+user.dir=D:\tool\yxdtool\sparkproject\sparkProject
+os.name=Windows 7
 os.arch=amd64
-os.version=6.3
+os.version=6.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
