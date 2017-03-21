@@ -18,10 +18,11 @@ public class JavaKafkaProducerTest {
 
         // 停留60秒后，进行关闭操作
         try {
-            Thread.sleep(1000000);
+            Thread.sleep(10000000);
         } catch (InterruptedException e) {
             // nothings
         }
+
         isRunning.set(false);
 
         // 关闭连接
