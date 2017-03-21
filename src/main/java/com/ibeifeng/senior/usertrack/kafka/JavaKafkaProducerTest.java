@@ -10,7 +10,7 @@ public class JavaKafkaProducerTest {
         String topicName = "yxdkafka0";
         String brokerList = "hadoop1:9092,hadoop1:9093,hadoop1:9094";
         String partitionerClass = "com.ibeifeng.senior.usertrack.kafka.JavaKafkaPartitioner";
-        int threadNums = Integer.MAX_VALUE;
+        int threadNums = 3;
         AtomicBoolean isRunning = new AtomicBoolean(true);
         JavaKafkaProducer producer = new JavaKafkaProducer(topicName, brokerList, partitionerClass);
         producer.run(threadNums, isRunning);
@@ -18,7 +18,7 @@ public class JavaKafkaProducerTest {
 
         // 停留60秒后，进行关闭操作
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1000000);
         } catch (InterruptedException e) {
             // nothings
         }

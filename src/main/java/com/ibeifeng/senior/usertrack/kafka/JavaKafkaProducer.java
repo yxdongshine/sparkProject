@@ -4,6 +4,7 @@ import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
 
+import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -116,9 +117,14 @@ public class JavaKafkaProducer {
                     int count = 0;
                     while (isRunning.get()) {
                         // 只有在运行状态的情况下，才发送数据
-                        KeyedMessage<String, String> message = generateMessage();
-                        // 发送数据
-                        producer.send(message);
+                        //KeyedMessage<String, String> message = generateMessage();
+                        //发送项目数据
+                        ArrayList<KeyedMessage<String, String>> message = generateADClickMessage();
+                        for (int i = 0 ; i<message.size();i++){
+                            // 发送数据
+                            producer.send(message.get(i));
+                        }
+
                         count++;
                         // 打印一下
                         if (count % 100 == 0) {
@@ -170,4 +176,39 @@ public class JavaKafkaProducer {
     }
 
 
+    /**
+     * 模拟项目生产者代码
+     */
+    public ArrayList<KeyedMessage<String, String>> generateADClickMessage() {
+        String delimeter = " ";
+        String key = random.nextInt(100)+"";
+        // 0-999
+        int cityId = random.nextInt(1000);
+        String province = "province_"+(cityId % 100)+"";
+        String city = "city_"+cityId;
+        int userId = random.nextInt(10000000);
+        int adId = random.nextInt(10000);
+        String str = province+delimeter+city+delimeter+userId+delimeter+adId;
+
+        // 0.05的几率产生一次产生多条数据, num >= 1
+        double numbers = 0.0 ;
+        if (random.nextDouble() <= 0.05) {
+            numbers = random.nextInt(500) + 1;
+        } else {
+            numbers = 1;
+        }
+
+
+        ArrayList<KeyedMessage<String, String>> buf = new  ArrayList<KeyedMessage<String, String>>();
+        for (int i = 1; i<= numbers ; i++) {
+            Long timestamp = System.currentTimeMillis();
+            String value = timestamp + delimeter + str ;
+            KeyedMessage<String, String> msg = new KeyedMessage<String, String>(topicName, key, key, value);
+
+            buf.add(msg);
+        }
+
+        //返回对象
+        return buf ;
+    }
 }
