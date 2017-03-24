@@ -8,6 +8,7 @@ import com.ibeifeng.senior.usertrack.jdbc.JDBCHelper
 import com.ibeifeng.senior.usertrack.spark.util.{SQLContextUtil, SparkConfUtil, SparkContextUtil}
 import com.ibeifeng.senior.usertrack.util.DateUtils
 import org.apache.hadoop.fs.{FileSystem, Path}
+import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.streaming.{Minutes, Seconds, StreamingContext}
@@ -28,6 +29,9 @@ object AdClickRealTimeStateSpark {
   var isLocal = false
 
   def main(args: Array[String]): Unit = {
+
+    //HBaseConfiguration
+
     // 一、 创建上下文
     val (appName, sc, ssc) = {
       // 1. 获取相关环境变量
