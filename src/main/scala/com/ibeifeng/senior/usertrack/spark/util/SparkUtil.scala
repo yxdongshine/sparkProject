@@ -18,6 +18,9 @@ object SparkConfUtil {
       new SparkConf()
         .setAppName(appName)
         .setMaster("local[*]")
+      .set("spark.driver.memory","455M")
+        .set("spark.executor.memory","600M")
+        .set("A","B")
     } else {
       // 集群运行环境，不设置master，master参数由启动脚本给定
       new SparkConf()
@@ -29,7 +32,7 @@ object SparkConfUtil {
     // RDD进行数据cache的时候，内存最多允许存储的大小（占executor的内存比例），默认0.6
     // 如果内存不够，可能有部分数据不会进行cache(CacheManager会对cache的RDD数据进行管理操作<删除不会用的RDD缓存>)
     conf.set("spark.storage.memoryFraction", "0.6")
-    // RDD进行shuffle的时候，shuffle数据写内存的阈值(占executor的内存比例），默认0.2
+    // RDD进行shuffle的时候，shuffle数据写内存的阈值(占excutor的内存比例），默认0.2
     conf.set("spark.shuffle.memoryFraction", "0.2")
     // TODO: 如果发现GC频繁而且持续时间长，这两个参数适当调低
 

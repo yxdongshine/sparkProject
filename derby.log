@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Mon Mar 20 23:07:19 CST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-015a-ec42-19de-00001036bb08 
-on database directory D:\tool\yxdtool\sparkproject\sparkProject\metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@6dc227c8 
-Loaded from file:/D:/tool/yxdtool/mavenjar/org/apache/derby/derby/10.10.2.0/derby-10.10.2.0.jar
+Wed Apr 12 18:32:43 CST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-015b-61b8-f5bd-00000af63fd0 
+on database directory D:\BaiduNetdiskDownload\code\meituan-usertrack\metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@5aa7cfdf 
+Loaded from file:/D:/yxd/tool/proson/mavenjar/org/apache/derby/derby/10.10.2.0/derby-10.10.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_67-b01
-user.dir=D:\tool\yxdtool\sparkproject\sparkProject
+java.runtime.version=1.8.0_92-b14
+user.dir=D:\BaiduNetdiskDownload\code\meituan-usertrack
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1

@@ -37,7 +37,7 @@ object AreaTop10ProductSpark {
       } else {
         // 2.1 创建数据库连接对象
         val taskDao = DAOFactory.getTaskDAO
-        // 2.2 数据库交互获取数据库中对应taskID的task对象, 如果数据不存在，返回的是一个空的task对象
+        // 2.2 数据库交互获取数据库中对应taskIDspark.memory.fraction的task对象, 如果数据不存在，返回的是一个空的task对象
         taskDao.findByTaskId(taskID)
       }
       // 3. 从task中获取任务参数
@@ -107,6 +107,8 @@ object AreaTop10ProductSpark {
     // 3. 将用户行为数据和城市信息数据进行join操作，并且注册成为临时表
     // 不同源的数据直接进行join操作
     generateTempProductBasicTable(sqlContext, actionDataFrame, cityInfoDataFrame)
+
+    //dirvePrint(sqlContext)
 
     // 4. 统计各个区域各个商品的点击次数，并注册成为临时表
     // 数据聚合(UDF和UDAF的使用方式)
@@ -212,6 +214,22 @@ object AreaTop10ProductSpark {
     selectedDataFrame.registerTempTable("tmp_product_basic")
   }
 
+
+  def dirvePrint(sqlContext: SQLContext): Unit ={
+    val sql =
+      """
+        |SELECT
+        | *
+        |FROM
+          tmp_product_basic
+
+      """.stripMargin
+
+    // 2. 执行sql语句，得到DataFrame
+    val df = sqlContext.sql(sql)
+    //df.cache()
+    println(df.collect().size)
+  }
   /**
     * 从临时表tmp_product_basic中读取数据，并聚合结果得到各个区域 各个商品的点击次数
     *

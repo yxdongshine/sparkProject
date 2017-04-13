@@ -22,9 +22,9 @@ object MockDataUtils {
   // 用户数量
   val userNumbers = 1000
   // 用户每天访问的会话数量上限(100万)
-  val userVisitSessionNumbers = 1000000
+  val userVisitSessionNumbers = 100000
   // 商品数量（100万）
-  val productNumbers = 1000000
+  val productNumbers = 100000
   // 商品品类数量(50个)
   val productCategoryNumbers = 50
   // 职业
